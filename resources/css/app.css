@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home-bg {
+    background: url("../img/header.png") no-repeat;
+    background-size:  100% ;
+}
+
+.certificate-bg {
+    background: url("../img/certificated.png") no-repeat;
+    background-size:  100% ;
+}
+
+
+.footer-bg {
+    background: url("../img/footer.png") no-repeat;
+    background-size:  100% ;
+}
