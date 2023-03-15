@@ -2,14 +2,14 @@
     <div class="py-12 mt-16">
         <div class="max-w-7xl mx-auto mb-10">
             <div class="w-4/5 text-white">
-                <h2 class="uppercase text-8xl">{{ __('About Us') }}</h2>
+                <h2 class="uppercase text-6xl">{{ __('About Us') }}</h2>
                 <div class="my-10 pl-1 w-3/4">
                     If you want your health supplements to be successful, you need to partner with a manufacturer who
                     can provide great flavoring and great results.
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-44">
+        <div class="max-w-7xl mx-auto mt-44 pt-14">
             <x-h2> {{ __('How Custom Supplement Manufacturing Can Help Your Business Succeed') }} </x-h2>
             <div class="flex justify-between">
                 <div class="w-2/4 p-2 ">
