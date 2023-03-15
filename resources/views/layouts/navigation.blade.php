@@ -28,6 +28,11 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('certification')" :active="request()->routeIs('certification')">
+                        {{ __('Certification') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Services') }}
                     </x-nav-link>
