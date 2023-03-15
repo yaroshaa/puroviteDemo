@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }" class="bg-transparent">
     <div class="max-w-7xl mx-auto py-4 ">
-        <div class="flex justify-between h-16">
+        <div class="flex justify-between h-10">
             <div class="flex">
                 <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('home') }}">
-                        <x-application-logo class="block h-12 w-auto fill-current text-gray-600"/>
+                        <x-application-logo class="block h-16 w-auto fill-current text-gray-600"/>
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -33,8 +33,18 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+                        {{ __('Blog') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('contacts')" :active="request()->routeIs('contacts')">
                         {{ __('Contacts') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
+                        {{ __('FAQ') }}
                     </x-nav-link>
                 </div>
             </div>

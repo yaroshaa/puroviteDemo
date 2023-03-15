@@ -1,4 +1,4 @@
-<header class="@if(!$home)  bg-gray-500 @else bg-transparent  @endif">
+<header class="bg-transparent">
     <div class="max-w-7xl mx-auto py-0">
         @include('layouts.navigation')
     </div>

@@ -2,16 +2,33 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
 class HomeController extends Controller
 {
-    /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function index()
+    public $lang;
+
+    public function __construct()
     {
-        return view('pages.home')->with([
+        $this->lang = App::currentLocale();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     */
+    public function index(Request $request)
+    {
+        $key = $request->path();
+
+        return view('layouts.homeApp')->with([
             'title' => 'Home',
             'home' => true
         ]);
+
     }
 }
+

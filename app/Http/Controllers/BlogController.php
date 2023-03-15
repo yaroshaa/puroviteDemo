@@ -43,14 +43,18 @@ class BlogController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display a listing of the resource.
      *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show(Blog $blog)
     {
-        //
+//        dd($blog);
+        return view('blog.post')->with([
+            'title' => 'Title',
+            'meta_keys' => 'Post',
+            'meta_description' => 'Post',
+        ]);
     }
 
     /**

@@ -4,8 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PagesController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,23 +34,23 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/about_us', [PagesController::class, 'index'])->name('about_us');
-Route::get('/manufacturing', [PagesController::class, 'index'])->name('manufacturing');
-Route::get('/facility', [PagesController::class, 'index'])->name('facility');
-Route::get('/services', [PagesController::class, 'index'])->name('services');
+Route::get('/about_us', [PageController::class, 'index'])->name('about_us');
+Route::get('/manufacturing', [PageController::class, 'index'])->name('manufacturing');
+Route::get('/facility', [PageController::class, 'index'])->name('facility');
+Route::get('/services', [PageController::class, 'index'])->name('services');
 // Contacts
-Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
-Route::post('contacts', [ContactController::class, 'index'])->name('contactsSend');
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
+Route::post('/contacts', [ContactController::class, 'index'])->name('contactsSend');
+Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
+//Route::get('blog', [BlogController::class, 'index'])->name('blog');
 
-Route::group([
-    'as' => 'blog.',
-    'prefix' => 'blog'
-], function () {
-    Route::get('/', [BlogController::class, 'index'])->name('blog');
-    Route::get('/{post}', 'BlogsController@show')->name('post');
-    Route::post('blog/{post}/comment', 'CommentController@store')->middleware('auth');
-    Route::patch('blog/{post}/comment/{id}', 'CommentController@update')->middleware('auth');
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class,'index'])->name('blog');
+    Route::get('/blog/{post}', [BlogController::class, 'show'])->name('post');
 });
+
 
 
 
