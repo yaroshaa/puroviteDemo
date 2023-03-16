@@ -38,8 +38,8 @@
                     about powder manufacturing. Here are some examples of popular types of powder: </p>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <div class=" flex justify-around mt-20">
+        <div class="max-w-7xl mx-auto mt-10">
+            <div class=" flex justify-around mt-10">
                 <div class="w-2/4 p-2 pt-5 pl-14">
                     <h3 class="uppercase text-4xl font-medium my-8 text-left text-cyan-800">
                         {{ __('Popular Powder Manufacturing Categories') }}
@@ -93,7 +93,7 @@
                                           alt="powders_frame_9">
                     </div>
                 </div>
-                <div class="w-4/4 p-2">
+                <div class="w-2/4 p-2">
                     <img src="{{ asset('img/powders_frame_3.png') }}" alt="powders_frame_3">
                 </div>
                 <div class="w-1/4">
@@ -117,12 +117,10 @@
                     all regulatory requirements.</p>
             </div>
         </div>
-
-
-        <div class="max-w-7xl mx-auto mt-20">
+        <div class="max-w-7xl mx-auto mt-5">
             <div class="flex justify-items-stretch">
                 <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-10 text-left text-cyan-800">
+                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Sweeteners') }}
                     </h3>
                     <div class="text-justify">
@@ -133,7 +131,7 @@
                     </div>
                 </div>
                 <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-10 text-left text-cyan-800">
+                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Flavors') }}
                     </h3>
                     <div class="text-justify">
@@ -182,7 +180,7 @@
             </div>
             <div class="flex justify-items-stretch">
                 <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-10 text-left text-cyan-800">
+                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Colors') }}
                     </h3>
                     <div class="text-justify">
@@ -194,7 +192,7 @@
                     </div>
                 </div>
                 <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-10 text-left text-cyan-800">
+                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Main Ingredients') }}
                     </h3>
                     <div class="text-justify">
@@ -235,7 +233,7 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
+        <div class="max-w-7xl mx-auto mt-10">
             <div class="w-full p-3">
                 <h2 class="uppercase text-6xl font-medium my-8 text-left text-cyan-800">
                     {{ __('Powder Mixtures') }}
@@ -313,8 +311,8 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <div class="flex justify-items-stretch pt-10">
+        <div class="max-w-7xl mx-auto mt-5">
+            <div class="flex justify-items-stretch pt-5">
                 <div class="w-2/4 p-8">
                     <img src="{{ asset('img/powders_frame_5.png') }}" alt="powders_frame_5">
                 </div>

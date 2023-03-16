@@ -12,42 +12,42 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('about_us')" :active="request()->routeIs('about_us')">
                         {{ __('About Us') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('manufacturing')" :active="request()->routeIs('manufacturing')">
                         {{ __('Manufacturing') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('facility')" :active="request()->routeIs('facility')">
                         {{ __('Facility') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('certification')" :active="request()->routeIs('certification')">
                         {{ __('Certification') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Services') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
                         {{ __('Blog') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('contacts')" :active="request()->routeIs('contacts')">
                         {{ __('Contacts') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-5 sm:flex">
                     <x-nav-link :href="route('faq')" :active="request()->routeIs('faq')">
                         {{ __('FAQ') }}
                     </x-nav-link>
@@ -89,6 +89,9 @@
                 </div>
             @else
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('register')">
+                        {{ __('Register') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
                         {{ __('Login') }}
                     </x-nav-link>
