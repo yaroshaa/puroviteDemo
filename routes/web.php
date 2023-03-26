@@ -7,6 +7,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 Route::post('/contacts', [ContactController::class, 'index'])->name('contactsSend');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
+Route::post('/search', [SearchController::class, 'index'])->name('search');
 //Route::get('blog', [BlogController::class, 'index'])->name('blog');
 
 

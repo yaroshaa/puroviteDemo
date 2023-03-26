@@ -1,9 +1,9 @@
-<footer class="footer-bg f-full text-white py-16">
+<footer class="footer-bg bg-bottom lt:bg-cover w-full text-white py-16">
     <div class="max-w-7xl mx-auto pt-10">
-        <div class="flex">
-            <div class="w-2/5 p-2 pl-10">
-                <x-h2>{{ __('Contacts') }}</x-h2>
-                <div class="flex-row px-3">
+        <div class="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col-reverse lt:flex-col-reverse">
+            <div class="xl:w-2/5  lg:w-2/5 md:w-2/5 sm:w-full lt:w-full p-2 lg:pl-10">
+                <h2 class="uppercase lt:text-2xl md:text-6xl lg:text-6xl 2xl:text-8xl my-8 lg:text-left lt:text-center">{{ __('Contacts') }}</h2>
+                <div class="flex flex-row lt:justify-center lg:justify-start">
                     <span class="inline-block">
                         <x-link href="/">
                             <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -39,9 +39,9 @@
                     </span>
                 </div>
             </div>
-            <div class="w-3/5 p-2">
-                <div class="flex">
-                    <div class="w-1/3 pt-10">
+            <div class="lg:w-3/5 lt:w-full p-2">
+                <div class="flex xl:flex-row lg:flex-row md:flex-row sm:flex-row lt:flex-col">
+                    <div class="w-1/3 pt-10 md:text-center sm:text-center">
                         <ul>
                             <li>
                                 <a href="{{ route('faq') }}">{{ __('FAQ') }}</a>
@@ -57,7 +57,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="w-1/3 pt-10">
+                    <div class="w-1/3 pt-10 md:text-center sm:text-center">
                         <ul>
                             <li>
                                 <a href="{{ route('facility') }}">{{ __('Facility') }}</a>
@@ -73,7 +73,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="w-1/3 pt-10">
+                    <div class="w-1/3 pt-10 md:text-center sm:text-center">
                         <ul>
                             <li>1234567890</li>
                             <li>1234567890</li>

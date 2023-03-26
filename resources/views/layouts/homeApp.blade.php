@@ -13,8 +13,9 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans antialiased">
-<div id="app" class="min-h-screen home-bg">
+<body class="font-sans antialiased ">
+{{--<div id="app" class="max-w-full home-bg xl:bg-contain lg:bg-contain md:bg-100% sm:bg-100% lt:bg-150%">--}}
+<div id="app" class="home-bg xl:bg-contain lg:bg-contain md:bg-100% sm:bg-100% lt:bg-150%">
     @include('layouts.header')
     @include('pages.homeContent')
     @include('layouts.footer')

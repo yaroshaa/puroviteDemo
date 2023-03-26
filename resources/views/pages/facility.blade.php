@@ -1,33 +1,33 @@
 <x-app-layout>
-    <div class="py-12 mt-10">
-        <div class="max-w-7xl mx-auto mb-10">
-            <div class="w-4/5 text-white">
-                <h2 class="uppercase text-6xl">{{ __('Powder Manufacturer') }}</h2>
-                <div class="my-10 pl-1 w-3/4 text-2xl">
+    <div class="lg:py-10 md:py-5 sm:py-2 lt:py-2 lg:mt-10 xl:mt-16 md:mt-10 sm:mt-0 lt:mt-0 p-2">
+        <div class="max-w-7xl mx-auto xl:mb-44 lg:mb-44 md:mb-8 sm:mb-3 lt:mb-3">
+            <div class="xl:w-4/5 lg:w-4/5 md:w-4/5 sm:w-full lt:w-full text-white">
+                <h2 class="uppercase xl:text-6xl lg:text-6xl md:text-6xl sm:text-2xl lt:text-2xl">{{ __('Powder Manufacturer') }}</h2>
+                <div class="lg:my-16 sm:my-0 xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full sm:text-xs lt:text-xs md:text-xl">
                     We can help you create custom powder blends to suit your specific needs, and our team of experts is
                     always available to answer any questions you may have about powder manufacturing.
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-44">
-            <div class="flex justify-start pt-14">
-                <div class="w-3/4 p-4">
-                    <h2 class="uppercase text-5xl font-medium my-8 text-left text-cyan-800">
+        <div class="max-w-7xl mx-auto xl:mb-20 lg:mb-20 md:mb-8 sm:mb-3 lt:mb-3">
+            <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col">
+                <div class="xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full xl:p-4 lg:p-4 md:p-4 sm:p-0 lt:p-0">
+                    <h2 class="uppercase font-medium text-left text-cyan-800 sm:text-center uppercase xl:text-5xl lg:text-5xl md:text-4xl sm:text-2xl lt:text-2xl xl:my-8 lg:my-8 md:my-5 sm:my-3 lt:my-3">
                         {{ __('R&D, Flavoring, Formulation,and More from the Top Powder Manufacturer') }}
                     </h2>
-                    <div class="mb-10 text-justify pr-10">
+                    <div class="mb-10 text-justify pr-10 ">
                         <p>Look no further than PuroVite if you need a custom powder manufacturer.
                             We can handle everything from development and testing to packaging and more for your powder
                             manufacturing needs. </p>
                     </div>
                 </div>
-                <div class="w-1/4 p-4 ">
-                    <img src="{{ asset('img/powders_frame_11.png') }}" alt="powders_frame_11">
+                <div class="xl:w-1/4 lg:w-1/4 md:w-full sm:w-full xl:p-4 lg:p-4 md:p-4 sm:p-0 lt:p-0 text-center">
+                    <img  class="sm:inline-block lt:inline-block" src="{{ asset('img/powders_frame_11.png') }}" alt="powders_frame_11">
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20 p-3">
-            <h2 class="uppercase text-6xl font-medium my-8 text-left text-cyan-800">
+        <div class="max-w-7xl mx-auto xl:mb-20 lg:mb-20 md:mb-8 sm:mb-3 lt:mb-3">
+            <h2 class="uppercase xl:text-6xl lg:text-6xl md:text-4xl sm:text-2xl lt:text-2xl font-medium my-8 xl:text-left lg:text-left md:text-left sm:text-center lt:text-center text-cyan-800">
                 {{ __('Supplement Powder Manufacturing Services ') }}
             </h2>
             <div class="w-full">
@@ -38,9 +38,9 @@
                     about powder manufacturing. Here are some examples of popular types of powder: </p>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-10">
-            <div class=" flex justify-around mt-10">
-                <div class="w-2/4 p-2 pt-5 pl-14">
+        <div class="max-w-7xl mx-auto xl:mb-20 lg:mb-20 md:mb-8 sm:mb-3 lt:mb-3 mt-10">
+            <div class=" flex xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col justify-around mt-10">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-full sm:w-full lt:w-full p-2 pt-5 pl-14">
                     <h3 class="uppercase text-4xl font-medium my-8 text-left text-cyan-800">
                         {{ __('Popular Powder Manufacturing Categories') }}
                     </h3>
@@ -56,7 +56,7 @@
                         <x-arrow-list-text>And more…</x-arrow-list-text>
                     </ul>
                 </div>
-                <div class="w-2/4 p-2 pt-5 pl-14">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-full sm:w-full lt:w-full p-2 pt-5 pl-14">
                     <h3 class="uppercase text-4xl font-medium my-8 text-left text-cyan-800">
                         {{ __('Private Label Powder Manufacturing Services') }}
                     </h3>
@@ -73,7 +73,7 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-10">
+        <div class="max-w-7xl mx-auto xl:mb-20 lg:mb-20 md:mb-8 sm:mb-3 lt:mb-3 mt-10">
             <div class="w-full p-6">
                 <div class="text-justify">
                     <p>There are many ways to combine ingredients in a formulation. If you have a question about how to
@@ -83,20 +83,18 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <div class="flex justify-items-stretch">
-                <div class="w-1/4">
+        <div class="max-w-7xl mx-auto xl:mb-20 lg:mb-20 md:mb-8 sm:mb-3 lt:mb-3 mt-10">
+            <div class="flex xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col justify-items-stretch">
+                <div class="xl:w-1/4 lg:w-1/4 md:w-1/4 sm:w-full lt:w-full xl:block lg:block md:block sm:hidden lt:hidden">
                     <div class="p-2"><img src="{{ asset('img/powders_frame_7.png') }}"
-                                          alt="powders_frame_7">
-                    </div>
+                                          alt="powders_frame_7"></div>
                     <div class="p-2"><img src="{{ asset('img/powders_frame_9.png') }}"
-                                          alt="powders_frame_9">
-                    </div>
+                                          alt="powders_frame_9"></div>
                 </div>
-                <div class="w-2/4 p-2">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-2">
                     <img src="{{ asset('img/powders_frame_3.png') }}" alt="powders_frame_3">
                 </div>
-                <div class="w-1/4">
+                <div class="xl:w-1/4 lg:w-1/4 md:w-1/4 sm:w-full lt:w-full xl:block lg:block md:block sm:hidden lt:hidden">
                     <div class="p-2"><img src="{{ asset('img/powders_frame_6.png') }}"
                                           alt="powders_frame_6">
                     </div>
@@ -106,8 +104,8 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20 p-3">
-            <h2 class="uppercase text-6xl font-medium my-8 text-left text-cyan-800">
+        <div class="max-w-7xl mx-auto mt-5">
+            <h2 class="uppercase xl:text-6xl lg:text-6xl md:text-4xl sm:text-2xl lt:text-2xl font-medium my-8 xl:text-left lg:text-left md:text-left sm:text-center lt:text-center text-cyan-800">
                 {{ __('Powder Supplement Ingredients & Flavors: Everything You Need to Kno') }}
             </h2>
             <div class="w-full">
@@ -118,9 +116,9 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-5">
-            <div class="flex justify-items-stretch">
-                <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
+            <div class="flex justify-items-stretch xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
+                    <h3 class="uppercase xl:text-6xl lg:text-6xl md:text-4xl sm:text-2xl lt:text-2xl font-medium my-8 xl:text-left lg:text-left md:text-left sm:text-center lt:text-center text-cyan-800">
                         {{ __('Sweeteners') }}
                     </h3>
                     <div class="text-justify">
@@ -129,21 +127,6 @@
                             can help offset those unfavorable tastes. These are the options that we offer for
                             sweeteners:</p>
                     </div>
-                </div>
-                <div class="w-2/4 p-6">
-                    <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
-                        {{ __('Flavors') }}
-                    </h3>
-                    <div class="text-justify">
-                        <p>Flavors are often used in combination with sweeteners to create the desired taste. Typical
-                            flavors include chocolate, vanilla, and many others. If the powder you choose does not have
-                            an unpleasant natural taste, you may opt to skip the flavors. When you prefer or need
-                            flavoring added, these are your choices:</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-items-stretch">
-                <div class="w-2/4 p-6">
                     <div class="p-2">
                         <ul>
                             <x-arrow-list-text>Natural sweeteners</x-arrow-list-text>
@@ -151,19 +134,6 @@
                             <x-arrow-list-text>Combined sweeteners</x-arrow-list-text>
                         </ul>
                     </div>
-                </div>
-                <div class="w-2/4 p-6">
-                    <div class="p-2">
-                        <ul>
-                            <x-arrow-list-text>Natural flavors</x-arrow-list-text>
-                            <x-arrow-list-text>Artificial flavors</x-arrow-list-text>
-                            <x-arrow-list-text>Combined flavors</x-arrow-list-text>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="flex justify-items-stretch">
-                <div class="w-2/4 p-6">
                     <div>
                         <p>Different sweeteners can be used in supplements, depending on the desired taste. Natural
                             sweeteners, artificial sweeteners, and combined sweeteners are all options that can help
@@ -172,14 +142,35 @@
                             all-natural supplement will be more attractive to your target market, you may choose a
                             natural sweetener.</p>
                     </div>
+
+
+
                 </div>
-                <div class="w-2/4 p-6">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
+                    <h3 class="uppercase xl:text-6xl lg:text-6xl md:text-4xl sm:text-2xl lt:text-2xl font-medium my-8 xl:text-left lg:text-left md:text-left sm:text-center lt:text-center text-cyan-800">
+                        {{ __('Flavors') }}
+                    </h3>
+                    <div class="text-justify">
+                        <p>Flavors are often used in combination with sweeteners to create the desired taste. Typical
+                            flavors include chocolate, vanilla, and many others. If the powder you choose does not have
+                            an unpleasant natural taste, you may opt to skip the flavors. When you prefer or need
+                            flavoring added, these are your choices:</p>
+                    </div>
+                    <div class="p-2">
+                        <ul>
+                            <x-arrow-list-text>Natural flavors</x-arrow-list-text>
+                            <x-arrow-list-text>Artificial flavors</x-arrow-list-text>
+                            <x-arrow-list-text>Combined flavors</x-arrow-list-text>
+                        </ul>
+                    </div>
                     <div><p>The decision is up to you and what you think your target market will want. Ultimately, it
                             comes down to personal preference. </p></div>
+
                 </div>
             </div>
-            <div class="flex justify-items-stretch">
-                <div class="w-2/4 p-6">
+
+            <div class="flex justify-items-stretch xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
                     <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Colors') }}
                     </h3>
@@ -190,8 +181,18 @@
                             appealing to customers. However, whether to add coloring or not is entirely up to you. We
                             offer the following types of colors:</p>
                     </div>
+                    <div class="p-2">
+                        <ul>
+                            <x-arrow-list-text>Natural colors</x-arrow-list-text>
+                            <x-arrow-list-text>Artificial colors</x-arrow-list-text>
+                            <x-arrow-list-text>Combined colors</x-arrow-list-text>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Whatever you decide, we can help you find the perfect color for your powder.</p>
+                    </div>
                 </div>
-                <div class="w-2/4 p-6">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
                     <h3 class="uppercase text-4xl font-medium my-8 pt-5 text-left text-cyan-800">
                         {{ __('Main Ingredients') }}
                     </h3>
@@ -204,22 +205,6 @@
                             will work with you to create a custom supplement powder that meets your requirements. Here
                             are some examples of popular active ingredients:</p>
                     </div>
-                </div>
-            </div>
-            <div class="flex justify-items-stretch">
-                <div class="w-2/4 p-6">
-                    <div class="p-2">
-                        <ul>
-                            <x-arrow-list-text>Natural colors</x-arrow-list-text>
-                            <x-arrow-list-text>Artificial colors</x-arrow-list-text>
-                            <x-arrow-list-text>Combined colors</x-arrow-list-text>
-                        </ul>
-                    </div>
-                    <div>
-                        <p>Whatever you decide, we can help you find the perfect color for your powder.</p>
-                    </div>
-                </div>
-                <div class="w-2/4 p-6">
                     <div class="p-2">
                         <ul>
                             <x-arrow-list-text>Whey protein</x-arrow-list-text>
@@ -233,7 +218,7 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-10">
+        <div class="max-w-7xl mx-auto mt-5">
             <div class="w-full p-3">
                 <h2 class="uppercase text-6xl font-medium my-8 text-left text-cyan-800">
                     {{ __('Powder Mixtures') }}
@@ -254,14 +239,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="max-w-7xl mx-auto mt-2">
-            <div class="flex justify-items-stretch pt-2">
-                <div class="w-1/3 p-6">
+        <div class="max-w-7xl mx-auto mt-5">
+            <div class="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col justify-items-stretch pt-2">
+                <div class="xl:w-1/3 lg:w-1/3 md:w-1/3 sm:w-full lt:w-full  p-6">
                     <div>
                         <img src="{{ asset('img/powders_frame_1.png') }}" alt="powders_frame_1">
                     </div>
-                    <h3 class="uppercase text-4xl font-medium mt-10 p-3 text-left text-cyan-800">
+                    <h3 class="uppercase text-2xl font-medium mt-10 p-3 text-left text-cyan-800">
                         {{ __('Step 1: You Design Your Powder and Choose Packaging') }}
                     </h3>
                     <div class="p-3">
@@ -274,7 +258,7 @@
                             process.</p>
                     </div>
                 </div>
-                <div class="w-1/3 p-6">
+                <div class="xl:w-1/3 lg:w-1/3 md:w-1/3 sm:w-full lt:w-full p-6">
                     <div>
                         <img src="{{ asset('img/powders_frame_8.png') }}" alt="powders_frame_8">
                     </div>
@@ -294,7 +278,7 @@
                             on your individual needs. </p>
                     </div>
                 </div>
-                <div class="w-1/3 p-6">
+                <div class="xl:w-1/3 lg:w-1/3 md:w-1/3 sm:w-full lt:w-full  p-6">
                     <div>
                         <img src="{{ asset('img/powders_frame_12.png') }}" alt="powders_frame_12">
                     </div>
@@ -312,11 +296,11 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-5">
-            <div class="flex justify-items-stretch pt-5">
-                <div class="w-2/4 p-8">
+            <div class="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col justify-items-stretch pt-5">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-8">
                     <img src="{{ asset('img/powders_frame_5.png') }}" alt="powders_frame_5">
                 </div>
-                <div class="w-2/4 p-5">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-5">
                     <div class="pl-3">
                         <h2 class="uppercase text-4xl font-medium py-5 text-left text-cyan-800">
                             {{ __('Benefits of Selling Powder Supplements') }}
@@ -335,8 +319,8 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto mt-2">
-            <div class="flex justify-items-stretch pt-2">
-                <div class="w-2/4 p-6">
+            <div class="flex xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col justify-items-stretch pt-2">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
                     <div class="p-3">
                         <img src="{{ asset('img/powders_frame_2.png') }}" alt="powders_frame_2">
                     </div>
@@ -358,7 +342,7 @@
                             safe, high-quality, and accurately measured products.</p>
                     </div>
                 </div>
-                <div class="w-2/4 p-6">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-2/4 sm:w-full lt:w-full p-6">
                     <div class="p-3">
                         <img src="{{ asset('img/powders_frame_4.png') }}" alt="powders_frame_4">
                     </div>

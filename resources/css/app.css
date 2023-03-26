@@ -4,21 +4,13 @@
 
 .home-bg {
     background: url("../img/header.png") no-repeat;
-    background-size:  100% ;
 }
-
 .app-top-bg {
     background: url("../img/header_2.png") no-repeat;
-    background-size:  100% ;
 }
-
 .certificate-bg {
     background: url("../img/certificated.png") no-repeat;
-    background-size:  100% ;
 }
-
-
 .footer-bg {
     background: url("../img/footer.png") no-repeat;
-    background-size:  100% ;
 }

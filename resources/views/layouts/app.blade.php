@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
 
-    <div id="app" class="min-h-screen app-top-bg" >
+    <div id="app" class="min-h-screen app-top-bg xl:bg-contain lg:bg-100% md:bg-150% sm:bg-100% lt:bg-150%" >
         @include('layouts.header')
         <main>
             {{ $slot }}

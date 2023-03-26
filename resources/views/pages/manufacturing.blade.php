@@ -1,20 +1,20 @@
 <x-app-layout>
-    <div class="py-12 mt-16">
-        <div class="max-w-7xl mx-auto mb-10">
+    <div class="lg:py-8 md:py-8 sm:py-5 lt:py-5 lg:mt-16 xl:mt-16 md:mt-8 sm:mt-0 lt:mt-0 p-2">
+        <div class="max-w-7xl mx-auto xl:mb-44 lg:mb-44 md:mb-8 sm:mb-3 lt:mb-3">
             <div class="w-4/5 text-white">
-                <h2 class="uppercase text-6xl">{{ __('Manufacturing') }}</h2>
-                <div class="my-10 pl-1 w-3/4 text-2xl">
+                <h2 class="uppercase xl:text-8xl lg:text-8xl md:text-6xl sm:text-2xl lt:text-2xl">{{ __('Manufacturing') }}</h2>
+                <div class="lg:my-16 sm:my-2 xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full sm:text-xs md:text-2xl">
                     PuroVite: Your Trusted Manufacturing Partner for Nutrition Supplements
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-44">
-            <div class="flex justify-center pt-14">
-                <div class="w-2/5 p-4 ">
+        <div class="max-w-7xl mx-auto pt-14 mx-auto xl:mb-44 lg:mb-44 md:mb-8 sm:mb-3 lt:mb-3">
+            <div class="pt-14 flex justify-center xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-full sm:w-full lt:w-full sm:pb-10 lt:pb-10">
                     <img src="{{ asset('img/manufacturing_1.png') }}" alt="manufacturing">
                 </div>
-                <div class="w-2/4 p-2 ml-5">
-                    <h2 class="uppercase text-6xl font-medium text-indigo-600 mb-5"> {{ __('Purovite') }} </h2>
+                <div class="xl:ml-5 lg:ml-5 xl:w-2/4 lg:w-2/4 md:w-full sm:w-full lt:w-full">
+                    <h2 class="uppercase text-6xl font-medium text-cyan-800 xl:mb-5 lg:mb-5 md:mb-5 sm:pb-8 lt:pb-8"> {{ __('Purovite') }} </h2>
                     <div class="mb-10 text-justify">
                         <p>When it comes to finding a reliable and reputable manufacturing partner for your nutrition
                             supplements, look no further than PuroVite.</p><br>
@@ -24,12 +24,12 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <h2 class="uppercase text-6xl font-medium my-8 text-left"> {{ __('PuroVite: Your Trusted Manufacturing Partner for Nutrition Supplements ') }} </h2>
-            <div class=" flex justify-around mt-24">
-                <div class="w-1/3 p-2">
+        <div class="max-w-7xl mx-auto xl:mt-20 lg:mt-20 md:mt-20 sm:mt-3 lt:mt-3">
+            <h2 class="uppercase text-6xl font-medium text-left text-cyan-800 sm:text-center uppercase lg:text-6xl lt:text-4xl md:text-4xl xl:my-8 lg:my-8 md:my-5 sm:my-3 lt:my-3"> {{ __('PuroVite: Your Trusted Manufacturing Partner for Nutrition Supplements ') }} </h2>
+            <div class="flex xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col justify-around xl:mt-24 lg:mt-24 md:mt-24 sm:mt-10 lt:mt-10">
+                <div class="flex flex-col xl:w-1/3 lg:w-1/3 md:w-full sm:w-full lt:w-full sm:mb-8 lt:mb-8 xl:p-2 lg:p-2 md:p-2">
                     <img src="{{ asset('img/manufacturing_2.png') }}" alt="manufacturing_2">
-                    <div class="pl-8 mt-16">
+                    <div class="xl:pl-8 lg:pl-8 md:pl-8 sm:pl-2 lt:pl-2 xl:mt-16 lg:mt-16 md:mt-16 sm:mt-8 lt:mt-8">
                         <div class="flex justify-start pb-8">
                             <h3 class="text-3xl font-medium  text-indigo-600">Blending</h3>
                         </div>
@@ -43,9 +43,9 @@
                         </ul>
                     </div>
                 </div>
-                <div class="w-1/3 p-2">
+                <div class="flex flex-col xl:w-1/3 lg:w-1/3 md:w-full sm:w-full lt:w-full sm:mb-8 lt:mb-8 xl:p-2 lg:p-2 md:p-2">
                     <img src="{{ asset('img/manufacturing_5.png') }}" alt="manufacturing_5">
-                    <div class="pl-8 mt-16">
+                    <div class="xl:pl-8 lg:pl-8 md:pl-8 sm:pl-2 lt:pl-2 xl:mt-16 lg:mt-16 md:mt-16 sm:mt-8 lt:mt-8">
                         <div class="flex justify-start pb-8">
                             <h3 class="text-3xl font-medium  text-indigo-600">Tableting and Coating</h3>
                         </div>
@@ -56,11 +56,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="w-1/3 p-2">
+                <div class="flex flex-col xl:w-1/3 lg:w-1/3 md:w-full sm:w-full lt:w-full sm:mb-8 lt:mb-8 xl:p-2 lg:p-2 md:p-2">
                     <img src="{{ asset('img/manufacturing_6.png') }}" alt="manufacturing_6">
-                    <div class="pl-8 mt-16">
+                    <div class="xl:pl-8 lg:pl-8 md:pl-8 sm:pl-2 lt:pl-2 xl:mt-16 lg:mt-16 md:mt-16 sm:mt-8 lt:mt-8">
                         <div class="flex justify-start pb-8">
-                            <h3 class="text-3xl font-medium  text-indigo-600">Packaging (tablets/capsules/powders)</h3>
+                            <h3 class="text-3xl font-medium  text-indigo-600">Packaging (tablets/ capsules/ powders)</h3>
                         </div>
                         <ul class="pl-10 list-disc">
                             <li>At PuroVite, we have a combined fully automated lines and semiautomatic counters that can produce over 200,000 bottles of nutrition supplements per day. This allows us to meet the high demand for these products while maintaining a consistent level of quality. Our state-of-the-art facilities are designed to streamline the manufacturing process and ensure that our products meet the highest standards.</li>
@@ -70,10 +70,10 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <div class="flex max-w-7xl">
-                <div class="w-3/4 sm:w-full">
-                    <h4 class="uppercase text-4xl font-medium my-8 px-4 text-gray-600">
+        <div class="max-w-7xl mx-auto xl:mt-20 lg:mt-20 md:mt-20 sm:mt-1 lt:mt-1">
+            <div class="max-w-7xl flex xl:flex-row lg:flex-row md:flex-col sm:flex-col lt:flex-col">
+                <div class="xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full">
+                    <h4 class="uppercase text-4xl font-medium xl:my-8 lg:my-8 md:my-8 sm:my-5 lt:my-5 px-2 text-gray-600 xl:text-center lg:text-center md:text-center">
                         Encapsulation (powder)
                     </h4>
                     <div class="mb-10 px-8 sm:px-4">
@@ -84,19 +84,19 @@
                         </ul>
                     </div>
                 </div>
-                <div class="w-2/4 text-center px-14">
+                <div class="xl:w-2/4 lg:w-2/4 md:w-full sm:w-full lt:w-full text-center xl:px-14 lg:px-14 md:px-14 sm:px-2 lt:px-2">
                     <img src="{{ asset('img/manufacturing_3.png') }}" alt="manufacturing_3">
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20">
-            <div class="flex">
-                <div class="w-2/5 text-center px-10">
-                    <img src="{{ asset('img/manufacturing_4.png') }}" alt="manufacturing_4">
+        <div class="max-w-7xl mx-auto xl:mt-20 lg:mt-20 md:mt-20 sm:mt-10 lt:mt-10">
+            <div class="flex xl:flex-row lg:flex-row md:flex-col-reverse sm:flex-col-reverse lt:flex-col-reverse">
+                <div class="xl:w-2/5 lg:w-2/5 md:w-full sm:w-full lt:w-full text-center xl:px-10 lg:px-10 md:px-10">
+                    <img class="sm:inline-block lt:inline-block" src="{{ asset('img/manufacturing_4.png') }}" alt="manufacturing_4">
                 </div>
-                <div class="w-3/5">
-                    <h4 class="uppercase text-4xl font-medium my-8 px-4 text-gray-600">
-                        Encapsulation (powder)
+                <div class="xl:w-3/5 lg:w-3/5 md:w-full sm:w-full lt:w-full">
+                    <h4 class="uppercase text-4xl font-medium my-8 px-4 text-gray-600 xl:text-center lg:text-center md:text-center">
+                        Encapsulation (liquid)
                     </h4>
                     <div class="mb-10 px-8">
                         <ul class="list-disc">
@@ -109,15 +109,13 @@
                 </div>
             </div>
         </div>
-
-        <div class="max-w-7xl mx-auto my-20">
+        <div class="max-w-7xl mx-auto xl:mt-20 lg:mt-20 md:mt-20 sm:mt-10 lt:mt-10">
             <p>When you source your manufacturing to PuroVite, you can be confident that you are receiving the best possible product for your customers. Our state-of-the-art facility and team of highly skilled professionals ensure that every product we produce meets the highest standards of quality and safety.</p><br>
 
             <p>With our experience and expertise, you can trust us to provide you with the best possible products to meet the needs of your customers.</p> <br>
 
             <p>Contact us today to learn more about how we can help you grow your business.</p>
         </div>
-
     </div>
 </x-app-layout>
 
