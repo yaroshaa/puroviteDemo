@@ -15,19 +15,8 @@ return new class extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('language_id');
-            $table->unsignedBigInteger('categories_blog_id');
-            $table->string('name')->nullable();
-            $table->text('content')->nullable();
-            $table->string('meta_keys')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('image')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
-
-            $table->foreign('categories_blog_id')->references('id')->on('categories_blog');
-            $table->foreign('language_id')->references('id')->on('languages');
-
         });
     }
 

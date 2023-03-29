@@ -49,30 +49,35 @@ Route::post('/search', [SearchController::class, 'index'])->name('search');
 //Route::get('blog', [BlogController::class, 'index'])->name('blog');
 
 
-Route::prefix('blog')->group(function () {
-    Route::get('/', [BlogController::class,'index'])->name('blog');
-    Route::get('/blog/{post}', [BlogController::class, 'show'])->name('post');
-});
+//Route::prefix('blog')->group(function () {
+//    Route::get('/', [BlogController::class,'index'])->name('blog');
+//    Route::get('/blog/{post}', [BlogController::class, 'show'])->name('post');
+//    Route::get('/blog/create', [BlogController::class, 'create'])->name('create');
+//    Route::post('/blog/store', [BlogController::class, 'store'])->name('store');
+//    Route::post('/blog/', [BlogController::class, 'show'])->name('post');
+//});
+
+Route::resource('blog', BlogController::class);
 
 
 
 
 // Products
-Route::group([
-    'as' => 'products.',
-    'prefix' => 'products'
-], function () {
-    Route::get('products', 'ProductsController@index')->name('products-list');
-    Route::get('products/{id}', 'ProductsController@show')->name('product');
-});
+//Route::group([
+//    'as' => 'products.',
+//    'prefix' => 'products'
+//], function () {
+//    Route::get('products', 'ProductsController@index')->name('products-list');
+//    Route::get('products/{id}', 'ProductsController@show')->name('product');
+//});
 
 // Photos
-Route::group([
-    'as' => 'photos.',
-    'prefix' => 'photos'
-], function () {
-    Route::get('photos', 'PhotosController@index')->name('photos');
-    Route::get('photos/{id}', 'PhotosController@show')->name('photo');
-});
+//Route::group([
+//    'as' => 'photos.',
+//    'prefix' => 'photos'
+//], function () {
+//    Route::get('photos', 'PhotosController@index')->name('photos');
+//    Route::get('photos/{id}', 'PhotosController@show')->name('photo');
+//});
 
 require __DIR__.'/auth.php';

@@ -5,18 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CategoryPhotoInfo extends Model
+class BlogContent extends Model
 {
     use HasFactory;
-    protected $table = 'category_photo_info';
+
+    protected $table = 'blog_content';
 
     protected $fillable = [
         'language_id',
-        'category_photo_id',
+        'blog_id',
         'name',
-        'description',
+        'content',
         'meta_keys',
-        'meta_description'
+        'meta_description',
+        'image',
     ];
-
 }

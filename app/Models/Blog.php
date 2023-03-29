@@ -12,13 +12,6 @@ class Blog extends Model
     protected $table = 'blog';
 
     protected $fillable = [
-        'language_id',
-        'categories_blog_id',
-        'name',
-        'content',
-        'meta_keys',
-        'meta_description',
-        'image',
         'status'
     ];
 }

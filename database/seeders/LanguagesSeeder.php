@@ -18,13 +18,6 @@ class LanguagesSeeder extends Seeder
         DB::table('languages')->delete();
 
         Language::create([
-            'key' => 'ru',
-            'name' => 'Русский',
-            'code' => 'RU'
-        ]);
-
-        Language::create([
-
             'key' => 'en',
             'name' => 'English',
             'code' => 'EN'

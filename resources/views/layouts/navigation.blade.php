@@ -26,7 +26,7 @@
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Services') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+                    <x-nav-link :href="route('blog.index')" :active="request()->routeIs('blog')">
                         {{ __('Blog') }}
                     </x-nav-link>
                     <x-nav-link :href="route('contacts')" :active="request()->routeIs('contacts')">
@@ -167,7 +167,7 @@
             <x-responsive-nav-link :href="route('services')" :active="request()->routeIs('services')">
                 {{ __('Services') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+            <x-responsive-nav-link :href="route('blog.index')" :active="request()->routeIs('blog')">
                 {{ __('Blog') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contacts')" :active="request()->routeIs('contacts')">

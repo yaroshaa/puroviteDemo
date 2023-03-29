@@ -18,21 +18,8 @@ class BlogSeeder extends Seeder
         DB::table('blog')->delete();
 
         Blog::create([
-            'categories_blog_id' => 1,
-            'language_id' => 1,
-            'name' => 'Post Name',
-            'content' => 'Post Content',
-            'meta_keys' => 'post, meta, keys ',
-            'meta_description' => 'post meta description'
-        ]);
-
-        Blog::create([
-            'categories_blog_id' => 1,
-            'language_id' => 2,
-            'name' => 'Post Name 2',
-            'content' => 'Post Content 2',
-            'meta_keys' => 'post, meta, keys 2',
-            'meta_description' => 'post meta description 2'
+            'id' => 1,
+            'status' => true
         ]);
     }
 }
