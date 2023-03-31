@@ -2,38 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Blog\BlogContentResource;
 use App\Models\Blog;
 use App\Models\BlogContent;
 use App\Models\Language;
-use GuzzleHttp\Psr7\Response;
+use App\Repositories\Interfaces\BlogRepositoryInterface;
+use App\Services\LocaleService;
 use Illuminate\Http\Request;
+use Auth;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $language_id = 1;
-        $posts = Blog::all();
+    private BlogRepositoryInterface $blogRepository;
+    private LocaleService $service;
 
-        return view('blog.blogList')->with([
-            'posts' => $posts
-        ]);
+    public function __construct(BlogRepositoryInterface $blogRepository, LocaleService $service)
+    {
+        $this->blogRepository = $blogRepository;
+        $this->service = $service;
+    }
+    /**
+     */
+    public function index($key = null)
+    {
+        $data = $this->blogRepository->getPosts($this->service->getLanguageId($key));
+        return view('blog.blogList')
+            ->with(['data' => $data->toArray()]);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     *
      */
     public function create()
     {
         $languages = Language::all();
-        return view('blog.create')->with(['languages' => $languages]);
+
+        return view('blog.blogCreate')->with(['languages' => $languages]);
     }
 
     /**
@@ -65,7 +69,7 @@ class BlogController extends Controller
         ]);
 
 
-        return redirect()->route('blog.index');
+        return redirect()->route('blog');
     }
 
     /**
@@ -73,14 +77,17 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show($id, $key = null)
     {
-//        dd($blog);
-        return view('blog.post')->with([
-            'title' => 'Title',
-            'meta_keys' => 'Post',
-            'meta_description' => 'Post',
-        ]);
+        $repository = $this->blogRepository->getPost((int)$id, $this->service->getLanguageId($key));
+        $blogContentResource = new BlogContentResource();
+        $post = [];
+        foreach ($repository as $data){
+            $post =  $blogContentResource ->toArray($data);
+        }
+
+        return view('blog.post')
+            ->with(['data' => $post]);
     }
 
     /**
@@ -112,7 +119,7 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function delete(Blog $blog)
     {
         //
     }

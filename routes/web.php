@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\Blog\BlogListController;
+use App\Http\Controllers\Blog\PostCreateController;
+use App\Http\Controllers\Blog\PostDeleteActionController;
+use App\Http\Controllers\Blog\PostEditController;
+use App\Http\Controllers\Blog\PostStoreActionController;
+use App\Http\Controllers\Blog\PostShowController;
+use App\Http\Controllers\Blog\PostUpdateActionController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -46,38 +53,35 @@ Route::post('/contacts', [ContactController::class, 'index'])->name('contactsSen
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
 Route::post('/search', [SearchController::class, 'index'])->name('search');
-//Route::get('blog', [BlogController::class, 'index'])->name('blog');
+
+Route::prefix('blog')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog');
+    Route::get('/add', [BlogController::class, 'create'])->name('postcreate');
+    Route::get('/{id}', [BlogController::class, 'show'])->name('postshow');
+    Route::post('/store', [BlogController::class, 'store'])->name('poststore');
+    Route::get('/{id}/edit', [BlogController::class, 'edit'])->name('postedit');
+    Route::post('/{id}/update', [BlogController::class, 'update'])->name('postupdate');
+    Route::post('/{id}/delete', [BlogController::class, 'delete'])->name('postdelete');
+});
 
 
-//Route::prefix('blog')->group(function () {
-//    Route::get('/', [BlogController::class,'index'])->name('blog');
-//    Route::get('/blog/{post}', [BlogController::class, 'show'])->name('post');
-//    Route::get('/blog/create', [BlogController::class, 'create'])->name('create');
-//    Route::post('/blog/store', [BlogController::class, 'store'])->name('store');
-//    Route::post('/blog/', [BlogController::class, 'show'])->name('post');
-//});
-
-Route::resource('blog', BlogController::class);
-
-
-
-
-// Products
 //Route::group([
-//    'as' => 'products.',
-//    'prefix' => 'products'
+//    'as' => 'blog.',
+//    'prefix' => 'blog'
 //], function () {
-//    Route::get('products', 'ProductsController@index')->name('products-list');
-//    Route::get('products/{id}', 'ProductsController@show')->name('product');
+//    Route::get('/', 'BlogController@index')->name('blog');
+//    Route::get('/add', 'BlogController@create')->name('postcreate');
+//    Route::get('/{id}', 'BlogController@show')->name('postshow');
+//    Route::post('/store', 'BlogController@store')->name('poststore');
+//    Route::get('/{id}/edit', 'BlogController@edit')->name('postedit');
+//    Route::post('/{id}/update', 'BlogController@update')->name('postupdate');
+//    Route::post('/{id}/delete', 'BlogController@delete')->name('postdelete');
 //});
 
-// Photos
-//Route::group([
-//    'as' => 'photos.',
-//    'prefix' => 'photos'
-//], function () {
-//    Route::get('photos', 'PhotosController@index')->name('photos');
-//    Route::get('photos/{id}', 'PhotosController@show')->name('photo');
-//});
+
+
+
+
+//Route::resource('blog', BlogController::class);
 
 require __DIR__.'/auth.php';

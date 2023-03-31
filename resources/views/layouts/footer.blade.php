@@ -66,7 +66,7 @@
                                 <a href="{{ route('services') }}">{{ __('Services') }}</a>
                             </li>
                             <li>
-                                <a href="{{ route('blog.index') }}">{{ __('Blog') }}</a>
+                                <a href="{{ route('blog') }}">{{ __('Blog') }}</a>
                             </li>
                             <li>
                                 <a href="{{ route('contacts') }}">{{ __('Contacts') }}</a>

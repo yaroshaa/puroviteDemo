@@ -11,16 +11,15 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up():void
+    public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('user_metas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('blog_id');
             $table->unsignedBigInteger('user_id');
-            $table->text('text')->nullable();
-            $table->boolean('status')->default(true);
+            $table->string('meta_key', 191)->nullable();
+            $table->text('meta_value')->nullable();
             $table->timestamps();
-            $table->foreign('blog_id')->references('id')->on('blog')->onDelete('cascade');
+
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
@@ -30,10 +29,10 @@ return new class extends Migration
      *
      * @return void
      */
-    public function down():void
+    public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('user_metas');
         Schema::enableForeignKeyConstraints();
     }
 };
