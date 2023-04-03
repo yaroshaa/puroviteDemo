@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->timestamps();
 
-            $table->foreign('blog_id')->references('id')->on('blog');
+            $table->foreign('blog_id')->references('id')->on('blog')->cascadeOnDelete();
             $table->foreign('language_id')->references('id')->on('languages');
         });
     }

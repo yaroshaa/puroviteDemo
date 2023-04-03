@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('/');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -63,25 +63,5 @@ Route::prefix('blog')->group(function () {
     Route::post('/{id}/update', [BlogController::class, 'update'])->name('postupdate');
     Route::post('/{id}/delete', [BlogController::class, 'delete'])->name('postdelete');
 });
-
-
-//Route::group([
-//    'as' => 'blog.',
-//    'prefix' => 'blog'
-//], function () {
-//    Route::get('/', 'BlogController@index')->name('blog');
-//    Route::get('/add', 'BlogController@create')->name('postcreate');
-//    Route::get('/{id}', 'BlogController@show')->name('postshow');
-//    Route::post('/store', 'BlogController@store')->name('poststore');
-//    Route::get('/{id}/edit', 'BlogController@edit')->name('postedit');
-//    Route::post('/{id}/update', 'BlogController@update')->name('postupdate');
-//    Route::post('/{id}/delete', 'BlogController@delete')->name('postdelete');
-//});
-
-
-
-
-
-//Route::resource('blog', BlogController::class);
 
 require __DIR__.'/auth.php';

@@ -16,6 +16,7 @@ class BlogContentResource
     {
         return [
             'id'                => (int) $data['id'],
+            'status'            => (boolean) $data['blog']['status'],
             'blog_id'           => (int) $data['blog_id'],
             'language_id'       => (int) $data['language_id'],
             'name'              => (string) $data['name'],

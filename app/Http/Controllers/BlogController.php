@@ -8,6 +8,9 @@ use App\Models\BlogContent;
 use App\Models\Language;
 use App\Repositories\Interfaces\BlogRepositoryInterface;
 use App\Services\LocaleService;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -21,6 +24,7 @@ class BlogController extends Controller
         $this->blogRepository = $blogRepository;
         $this->service = $service;
     }
+
     /**
      */
     public function index($key = null)
@@ -43,12 +47,11 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param \Illuminate\Http\Request $request
+     * @return Application|Factory|\Illuminate\Foundation\Application|View
      */
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required'],
             'content' => ['required'],
@@ -56,18 +59,16 @@ class BlogController extends Controller
             'meta_description' => ['required'],
         ]);
 
-        $post = Blog::create();
-        BlogContent::create([
-            'blog_id' => $post->id,
-            'language_id' => $request->language_id,
-            'name' => $request->name,
-            'content' => $request->input('content'),
-            'meta_keys' => $request->inputmeta_keys,
-            'meta_description' => $request->meta_description,
-            'image' => $request->image,
-            'status' => true
-        ]);
-
+        $newContent = $this->blogRepository->storePost($request);
+        if (!$newContent)
+        {
+            return view()->with(['error' => 'Тew post not added']);
+        } else {
+            if ($request->isMethod('post') && $request->hasFile('image')) {
+                $file = $request->file('image');
+                $file->move(public_path() . '/img/blog', 'filename.img');
+            }
+        }
 
         return redirect()->route('blog');
     }
@@ -82,8 +83,8 @@ class BlogController extends Controller
         $repository = $this->blogRepository->getPost((int)$id, $this->service->getLanguageId($key));
         $blogContentResource = new BlogContentResource();
         $post = [];
-        foreach ($repository as $data){
-            $post =  $blogContentResource ->toArray($data);
+        foreach ($repository as $data) {
+            $post = $blogContentResource->toArray($data);
         }
 
         return view('blog.post')
@@ -93,34 +94,63 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return Application|Factory|View|\Illuminate\Foundation\Application
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
+        $key = null;
+        $languages = Language::all();
+        $repository = $this->blogRepository->getPost((int)$id, $this->service->getLanguageId($key));
+        $blogContentResource = new BlogContentResource();
+        $post = [];
+        foreach ($repository as $data) {
+            $post = $blogContentResource->toArray($data);
+        }
 
+        return view('blog.blogEdit')->with(['languages' => $languages, 'data' => $post]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'content' => ['required'],
+            'meta_keys' => ['required'],
+            'meta_description' => ['required'],
+        ]);
+
+        $updateContent = $this->blogRepository->updatePost($request,$id);
+
+        if (!$updateContent) {
+            return view()->with(['error' => 'Тew post not added']);
+        } else {
+            if ($request->isMethod('post') && $request->hasFile('image')) {
+                $file = $request->file('image');
+                $file->move(public_path() . '/img/blog', 'filename.img');
+            }
+        }
+
+        return redirect()->route('blog');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param \App\Models\Blog $blog
      * @return \Illuminate\Http\Response
      */
-    public function delete(Blog $blog)
+    public function delete(Request $request, int $id)
     {
-        //
+        $this->blogRepository->deletePost($request, $id);
+
+        return redirect()->route('blog');
     }
 }

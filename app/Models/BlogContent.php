@@ -20,4 +20,9 @@ class BlogContent extends Model
         'meta_description',
         'image',
     ];
+    public function blog(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Blog::class);
+    }
+
 }

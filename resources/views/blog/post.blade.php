@@ -36,12 +36,27 @@
                                         </a>
                                     </div>
                                     <div class="inline-block p-2">
-                                        <form method="POST" action="{{ route('postdelete', ['id' => $data['blog_id']]) }}">
-                                            @csrf
-                                            <button type="submit" class="text-sm bg-non border-transparent inline-block">
-                                                delete
-                                            </button>
-                                        </form>
+                                        <x-link-modal x-data="" x-on:click="$dispatch('open-modal', 'confirm-post-deletion')">
+                                            delete
+                                        </x-link-modal>
+                                        <x-post-modal name="confirm-post-deletion">
+                                            <form method="POST" action="{{ route('postdelete', ['id' => $data['blog_id']]) }}" class="p-2" >
+                                                @csrf
+                                                <h2 class="text-lg font-medium text-gray-900">
+                                                    {{ __('Are you sure you want to delete this post?') }}
+                                                </h2>
+
+                                                <div class="mt-6 flex justify-end">
+                                                    <x-secondary-button x-on:click.prevent="$dispatch('close', 'confirm-post-deletion')">
+                                                        {{ __('Cancel') }}
+                                                    </x-secondary-button>
+
+                                                    <x-danger-button class="ml-3" x-on:click="console.log('11111111111')">
+                                                        {{ __('Delete') }}
+                                                    </x-danger-button>
+                                                </div>
+                                            </form>
+                                        </x-post-modal>
                                     </div>
                                 </div>
                             </div>
