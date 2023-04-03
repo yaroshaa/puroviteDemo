@@ -52,12 +52,6 @@
                         </div>
 
                         <div class="mt-4">
-                            <x-input-label for="status" :value="__('Status')" />
-                            <x-text-input id="meta_description" class="block mt-1 w-full" type="checkbox" name="status" :value="true" required />
-                            <x-input-error :messages="$errors->get('status')" class="mt-2" />
-                        </div>
-
-                        <div class="mt-4">
                             <x-input-label for="image" :value="__('Image')" />
                             <x-text-input id="image" class="block mt-1 w-full " type="file" name="image" :value="old('image')"/>
                             <x-input-error :messages="$errors->get('image')" class="mt-2" />
