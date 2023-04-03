@@ -49,7 +49,7 @@ Route::get('/certification', [PageController::class, 'index'])->name('certificat
 Route::get('/services', [PageController::class, 'index'])->name('services');
 // Contacts
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
-Route::post('/contacts', [ContactController::class, 'index'])->name('contactsSend');
+Route::post('/contacts', [ContactController::class, 'send'])->name('contactsSend');
 Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
 Route::post('/search', [SearchController::class, 'index'])->name('search');

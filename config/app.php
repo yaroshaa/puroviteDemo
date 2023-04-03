@@ -185,7 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Buzz\LaravelGoogleCaptcha\CaptchaServiceProvider::class,
         /*
          * Application Service Providers...
          */
