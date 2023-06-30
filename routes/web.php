@@ -45,7 +45,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about_us', [PageController::class, 'index'])->name('about_us');
 Route::get('/manufacturing', [PageController::class, 'index'])->name('manufacturing');
 Route::get('/facility', [PageController::class, 'index'])->name('facility');
-Route::get('/certification', [PageController::class, 'index'])->name('certification');
+Route::get('/quality', [PageController::class, 'index'])->name('quality');
+Route::get('/certificates', [PageController::class, 'index'])->name('certificates');
 Route::get('/services', [PageController::class, 'index'])->name('services');
 // Contacts
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');

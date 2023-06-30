@@ -30,16 +30,12 @@ class ContactController extends Controller
      */
     public function send(Request $request)
     {
-
-
         $request->validate([
             'name' => ['required'],
             'email' => ['required'],
             'message' => ['required'],
             'g-recaptcha-response' => 'required|captcha',
         ]);
-
-
 
         return view('pages.send-result')->with(['data' => 'or']);
     }

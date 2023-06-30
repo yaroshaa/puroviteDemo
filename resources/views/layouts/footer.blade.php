@@ -75,12 +75,13 @@
                     </div>
                     <div class="w-1/3 pt-10 md:text-center sm:text-center">
                         <ul>
-                            <li>1234567890</li>
-                            <li>1234567890</li>
-                            <li>1234567890</li>
+{{--                            <li>Phone</li>--}}
+                            <li>Purovite, Inc.</li>
+                            <li>7347 SW 45 th Street</li>
+                            <li>Miami, FL 33155</li>
                         </ul>
                         <ul>
-                            <li>1qweetre@gmail.com</li>
+                            <li>Info@purovite.com</li>
                         </ul>
                     </div>
                 </div>

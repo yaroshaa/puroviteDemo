@@ -14,10 +14,11 @@ class FaqController extends Controller
      */
     public function index()
     {
-        return view('blog/blogList')->with([
-            'title' => 'Blog',
-            'meta_keys' => 'Blog',
-            'meta_description' => 'Blog',
+        return view('faq/list')->with([
+            'title' => 'FAQ',
+            'meta_keys' => 'faq',
+            'meta_description' => 'faq',
+            'data' => ['data' => []]
         ]);
     }
 
@@ -47,14 +48,9 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show()
     {
-//        dd($blog);
-        return view('blog.post')->with([
-            'title' => 'Title',
-            'meta_keys' => 'Post',
-            'meta_description' => 'Post',
-        ]);
+
     }
 
     /**
@@ -66,7 +62,7 @@ class FaqController extends Controller
     public function edit(Blog $blog)
     {
 
-            }
+    }
 
     /**
      * Update the specified resource in storage.

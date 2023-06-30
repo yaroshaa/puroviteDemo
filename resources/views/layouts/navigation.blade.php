@@ -20,8 +20,11 @@
                     <x-nav-link :href="route('facility')" :active="request()->routeIs('facility')">
                         {{ __('Facility') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('certification')" :active="request()->routeIs('certification')">
-                        {{ __('Certification') }}
+                    <x-nav-link :href="route('quality')" :active="request()->routeIs('quality')">
+                        {{ __('Quality') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('certificates')" :active="request()->routeIs('certificates')">
+                        {{ __('Сertificates') }}
                     </x-nav-link>
                     <x-nav-link :href="route('services')" :active="request()->routeIs('services')">
                         {{ __('Services') }}
@@ -193,8 +196,11 @@
             <x-responsive-nav-link :href="route('facility')" :active="request()->routeIs('facility')">
                 {{ __('Facility') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('certification')" :active="request()->routeIs('certification')">
-                {{ __('Certification') }}
+            <x-responsive-nav-link :href="route('quality')" :active="request()->routeIs('quality')">
+                {{ __('Quality') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('certificates')" :active="request()->routeIs('certificates')">
+                {{ __('Сertificates') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('services')" :active="request()->routeIs('services')">
                 {{ __('Services') }}
