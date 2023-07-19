@@ -11,6 +11,7 @@ use App\Services\LocaleService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Auth;
 
@@ -114,9 +115,9 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return Application|Factory|View|\Illuminate\Foundation\Application|RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -143,13 +144,10 @@ class BlogController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param \App\Models\Blog $blog
-     * @return \Illuminate\Http\Response
      */
-    public function delete(Request $request, int $id)
+    public function delete(int $id)
     {
-        $this->blogRepository->deletePost($request, $id);
+        $this->blogRepository->deletePost($id);
 
         return redirect()->route('blog');
     }

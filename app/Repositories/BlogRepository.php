@@ -12,7 +12,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
     /**
      * @param int $languageId
      */
-    public function getPosts(int $languageId)
+    public function getPosts(int $languageId): \LaravelIdea\Helper\App\Models\_IH_Blog_C|array|\Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Pagination\LengthAwarePaginator
     {
         return Blog::with(['content' => function ($query) use ($languageId) {
             $query->where('language_id' , $languageId);
@@ -25,7 +25,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
      * @param int $languageId
      * @return array
      */
-    public function getPost(int $id, int $languageId)
+    public function getPost(int $id, int $languageId): array
     {
         return BlogContent::where('language_id' , $languageId)
             ->where('blog_id', $id)
@@ -36,7 +36,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
 
 
 
-    public function storePost(Request $request)
+    public function storePost(Request $request): bool
     {
         $post = Blog::create();
         $blogContent = BlogContent::create([
@@ -54,7 +54,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
     }
 
 
-    public function updatePost(Request $request, $id)
+    public function updatePost(Request $request, $id): string
     {
         $blogId = $request->input('blog_id');
         Blog::find($blogId)->update([
@@ -73,7 +73,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
         return 'ok';
     }
 
-    public function deletePost(Request $request, $id)
+    public function deletePost($id)
     {
         Blog::find($id)->delete();
 

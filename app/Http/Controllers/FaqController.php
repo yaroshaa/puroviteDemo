@@ -3,34 +3,33 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Repositories\FaqRepository;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
 {
+    private FaqRepository $faqRepository;
+
+    public function __construct(FaqRepository $faqRepository)
+    {
+        $this->faqRepository = $faqRepository;
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
-        return view('faq/list')->with([
+           $data = $this->faqRepository->getQuestions();
+
+           return view('faq/faqList')->with([
             'title' => 'FAQ',
             'meta_keys' => 'faq',
             'meta_description' => 'faq',
-            'data' => ['data' => []]
+            'data' => $data
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -40,49 +39,42 @@ class FaqController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'userId' => ['required'],
+            'question' => ['required'],
+        ]);
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
-     */
-    public function show()
-    {
+        $newQuestion = $this->faqRepository->storeQuestion($request);
 
-    }
+        if (!$newQuestion)
+        {
+            return view()->with(['error' => 'New Question not added']);
+        } else {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Blog  $blog
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Blog $blog)
-    {
+        }
 
+        return redirect()->route('faq');
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request)
     {
-        //
+        $question = $this->faqRepository->updateQuestion($request);
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Request $request)
     {
         //
     }

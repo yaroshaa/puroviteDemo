@@ -25,7 +25,7 @@
                         <div
                             class="inline-block px-4 lt:text-gray-500 sm:text-gray-500 md:text-white lg:text-white xl:text-white">
                             <div class="text-2xl">Herbal</div>
-                            <div class="text-xs w-auto">Lorem ipsun sdhjhjfgvassfdf sf fd df dfdf</div>
+                            <div class="text-xs w-auto">Products with natural ingredients</div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         <div
                             class="inline-block px-4 lt:text-gray-500 sm:text-gray-500 md:text-white lg:text-white xl:text-white">
                             <div class="text-2xl">Sport</div>
-                            <div class="text-xs">Lorem ipsun sdhjhjfgvassfdf sf fd df dfdf</div>
+                            <div class="text-xs">Extra help with sports</div>
                         </div>
                     </div>
                 </div>
@@ -104,7 +104,7 @@
                         <div
                             class="inline-block px-4 lt:text-gray-500 sm:text-gray-500 md:text-white lg:text-white xl:text-white">
                             <div class="text-2xl">Pet Products</div>
-                            <div class="text-xs">Lorem ipsun sdhjhjfgvassfdf sf fd df dfdf</div>
+                            <div class="text-xs">For animals health</div>
                         </div>
                     </div>
                 </div>
@@ -147,9 +147,9 @@ PuroVite is a nutraceutical contract manufacturer that can help you develop, tes
                         with your whole business in mind
                     </div>
                     <div class="mt-5">
-                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">
-                            {{ __('Read more') }}
-                        </x-blue-button>
+{{--                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">--}}
+{{--                            {{ __('Read more') }}--}}
+{{--                        </x-blue-button>--}}
                     </div>
                 </div>
             </div>
@@ -163,9 +163,9 @@ PuroVite is a nutraceutical contract manufacturer that can help you develop, tes
                         We'll work with you to create the custom product you need
                     </div>
                     <div class="mt-5">
-                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">
-                            {{ __('Read more') }}
-                        </x-blue-button>
+{{--                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">--}}
+{{--                            {{ __('Read more') }}--}}
+{{--                        </x-blue-button>--}}
                     </div>
                 </div>
             </div>
@@ -179,9 +179,9 @@ PuroVite is a nutraceutical contract manufacturer that can help you develop, tes
                         Are you looking for a reliable powder manufacturer? We can help!
                     </div>
                     <div class="mt-5">
-                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">
-                            {{ __('Read more') }}
-                        </x-blue-button>
+{{--                        <x-blue-button :href="route('home')" :active="request()->routeIs('home')">--}}
+{{--                            {{ __('Read more') }}--}}
+{{--                        </x-blue-button>--}}
                     </div>
                 </div>
             </div>

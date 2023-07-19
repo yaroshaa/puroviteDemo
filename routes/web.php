@@ -51,10 +51,16 @@ Route::get('/services', [PageController::class, 'index'])->name('services');
 // Contacts
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 Route::post('/contacts', [ContactController::class, 'send'])->name('contactsSend');
-Route::get('/faq', [FaqController::class, 'index'])->name('faq');
-Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
+//Route::get('/faq', [FaqController::class, 'index'])->name('faq');
+//Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 
+Route::prefix('faq')->group(function () {
+    Route::get('/', [FaqController::class, 'index'])->name('faq');
+    Route::post('/', [FaqController::class, 'index'])->name('faqsend');
+    Route::post('/{id}/update', [FaqController::class, 'update'])->name('faqupdate');
+    Route::post('/{id}/delete', [FaqController::class, 'delete'])->name('faqdelete');
+});
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog');
     Route::get('/add', [BlogController::class, 'create'])->name('postcreate');
@@ -64,5 +70,7 @@ Route::prefix('blog')->group(function () {
     Route::post('/{id}/update', [BlogController::class, 'update'])->name('postupdate');
     Route::post('/{id}/delete', [BlogController::class, 'delete'])->name('postdelete');
 });
+
+
 
 require __DIR__.'/auth.php';

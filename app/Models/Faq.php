@@ -11,29 +11,14 @@ class Faq extends Model
 {
     use HasFactory;
 
-    protected $table = 'blog';
+    protected $table = 'faq';
 
     protected $fillable = [
+        'id',
+        'user_id',
+        'question',
+        'answer',
+        'answered',
         'status'
     ];
-
-    protected $with = [
-        'content',
-    ];
-
-    /**
-     * @return HasMany
-     */
-    public function content(): HasMany
-    {
-        return $this->hasMany(BlogContent::class);
-    }
-
-//    /**
-//     * @return HasMany
-//     */
-//    public function comments(): HasMany
-//    {
-//        return $this->hasMany(Comment::class);
-//    }
 }

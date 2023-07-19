@@ -7,18 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\App;
 
-class Email extends Model
+class Mail extends Model
 {
     use HasFactory;
 
-    protected $table = 'faq';
+    protected $table = 'mail';
 
     protected $fillable = [
         'id',
-        'user_id',
-        'question',
-        'answer',
-        'answered',
+        'name',
+        'email',
+        'message',
         'status'
     ];
 }

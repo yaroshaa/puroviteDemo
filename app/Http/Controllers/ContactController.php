@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mail;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
-use JetBrains\PhpStorm\NoReturn;
+use App\Jobs\SendMailJob;
+
 
 
 class ContactController extends Controller
@@ -31,12 +33,25 @@ class ContactController extends Controller
     public function send(Request $request)
     {
         $request->validate([
-            'name' => ['required'],
-            'email' => ['required'],
-            'message' => ['required'],
-            'g-recaptcha-response' => 'required|captcha',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required',  'email', 'max:255'],
+            'message' => ['required', 'string'],
+//            'g-recaptcha-response' => 'required|captcha',
         ]);
 
-        return view('pages.send-result')->with(['data' => 'or']);
+        $mail = Mail::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => strip_tags($request->message),
+        ]);
+
+        if ($mail->id != null) {
+            SendMailJob::dispatch($request);
+            return view('pages.send-result')->with(['data' => 'Your message has been sent']);
+
+        }else {
+
+            return view('pages.send-result')->with(['data' => 'Message not sent']);
+        }
     }
 }

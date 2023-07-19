@@ -2,7 +2,6 @@
 
 namespace App\Mail;
 
-use App\Models\PipedriveQuery;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -13,32 +12,16 @@ class NewMessageFromContactPage extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * @var Collection
-     */
-    public $programmes;
-
-    /**
-     * @var PipedriveQuery
-     */
-    public $query;
-    /**
-     * @var string|null
-     */
-    public $student;
-
+    private array $data;
     /**
      * Create a new message instance.
      *
-     * @param Collection $programmes
-     * @param PipedriveQuery $query
-     * @param string|null $student
      */
-    public function __construct(Collection $programmes, PipedriveQuery $query, string $student = null)
+    public function __construct($name, $userEmail,$userMessage)
     {
-        $this->query = $query;
-        $this->programmes = $programmes;
-        $this->student = $student;
+        $this->data['name'] = $name;
+        $this->data['email'] = $userEmail;
+        $this->data['message'] = $userMessage;
     }
 
     /**
@@ -48,7 +31,9 @@ class NewMessageFromContactPage extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mails.potential-student')
-            ->subject("Prospect institution selected when 'Copy Chosen' or 'Send Chosen'");
+        return $this->subject('New message from contact page purovite.com')
+            ->markdown('mails.messageFromContactPage', [
+                'data' => $this->data
+            ]);
     }
 }
