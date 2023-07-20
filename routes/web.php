@@ -57,7 +57,8 @@ Route::post('/search', [SearchController::class, 'index'])->name('search');
 
 Route::prefix('faq')->group(function () {
     Route::get('/', [FaqController::class, 'index'])->name('faq');
-    Route::post('/', [FaqController::class, 'index'])->name('faqsend');
+    Route::post('/store', [FaqController::class, 'store'])->name('faqsend');
+    Route::get('/{id}/edit', [FaqController::class, 'edit'])->name('faqedit');
     Route::post('/{id}/update', [FaqController::class, 'update'])->name('faqupdate');
     Route::post('/{id}/delete', [FaqController::class, 'delete'])->name('faqdelete');
 });

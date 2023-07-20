@@ -10,33 +10,33 @@ use Illuminate\Support\Collection;
 class FaqRepository
 {
 
-    /**
-     *
-     */
     public function getQuestions(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         return Faq::where('answered' , true)->where('status',true)->orderBy('created_at', 'DESC')->paginate(25);
     }
 
+    public function getQuestionsForAdmin(): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    {
+        return Faq::orderBy('created_at', 'DESC')->paginate(25);
+    }
 
     public function storeQuestion(Request $request)
     {
-        $question = Faq::create([
+        //        return isset($question->id);
+        return Faq::create([
             'user_id' => $request->input('userId') ,
             'question' => $request->input('question'),
         ]);
-
-        return isset($question->id);
     }
 
 
     public function updateQuestion(Request $request)
     {
-        $faqId = $request->input('faq_id');
+        $faqId = $request->input('faqId');
         Faq::find($faqId)->update([
             'answer' => $request->input('answer'),
             'answered' => true,
-            'status' => $request->input('status')
+            'status' => $request->input('status') ?? 0
         ]);
 
         return 'ok';
