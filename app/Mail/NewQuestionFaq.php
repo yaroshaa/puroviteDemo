@@ -27,7 +27,7 @@ class NewQuestionFaq extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
         return $this->subject('New message from contact page purovite.com')
             ->markdown('mails.newQuestionOnFaq', [

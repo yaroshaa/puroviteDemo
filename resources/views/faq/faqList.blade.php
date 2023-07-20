@@ -40,30 +40,29 @@
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3">
+        <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3 mt-5">
 
             @if(count($data['data']) > 0 )
                 @foreach($data['data'] as $faq)
-                    <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col border-b-2 border-gray-200">
+                    <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col mb-3">
                         @if($faq['answered'] && !Auth::user())
                             <div x-data="{ expanded: false }" class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
-                                <div @click="expanded = ! expanded"  class="mb-3 text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
-                                    <p>{{ $faq['question'] }}</p><br>
+                                <div @click="expanded = ! expanded"  class="text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
+                                    <p class="p-3">{{ $faq['question'] }}</p>
                                 </div>
-                                <div x-show="expanded" x-collapse class="mb-3 text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0 bg-slate-100">
-                                    <p>{{ $faq['answer'] }}</p><br>
+                                <div x-show="expanded" x-collapse class="text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0 bg-slate-100">
+                                    <p class="p-3" >{{ $faq['answer'] }}</p>
                                 </div>
                             </div>
                         @elseif(Auth::user() && Auth::user()->hasRole('admin'))
                             <div x-data="{ expanded: false }" class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
-                                <div @click="expanded = ! expanded"  class="mb-3 text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
-                                    <p>{{ $faq['question'] }}</p><br>
+                                <div @click="expanded = ! expanded"  class="text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
+                                    <p class="p-3">{{ $faq['question'] }}</p>
                                 </div>
-                                <div x-show="expanded" x-collapse class="mb-3 text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
+                                <div x-show="expanded" x-collapse class="text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
                                     <div x-show="expanded" x-collapse>
                                         <form method="POST" action="{{ route('faqupdate',['id' => $faq['id']]) }}">
                                             @csrf
-
                                             <div class="mt-4">
                                                 <input type="hidden" name="faqId" value="{{ $faq['id'] }}" />
                                             </div>
@@ -128,9 +127,7 @@
                     </div>
                 </div>
             @endif
-
         </div>
-
         </div>
     </div>
 </x-app-layout>

@@ -1,11 +1,8 @@
 <?php
 namespace App\Repositories;
 
-
 use App\Models\Faq;
-use App\Repositories\Interfaces\BlogRepositoryInterface;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 class FaqRepository
 {
@@ -28,7 +25,6 @@ class FaqRepository
             'question' => $request->input('question'),
         ]);
     }
-
 
     public function updateQuestion(Request $request)
     {

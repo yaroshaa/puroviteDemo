@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\Blog\BlogContentResource;
-use App\Models\Blog;
-use App\Models\BlogContent;
 use App\Models\Language;
 use App\Repositories\Interfaces\BlogRepositoryInterface;
 use App\Services\LocaleService;
@@ -13,7 +11,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Auth;
 
 class BlogController extends Controller
 {
@@ -48,8 +45,8 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return Application|Factory|\Illuminate\Foundation\Application|View
+     * @param Request $request
+     * @return RedirectResponse
      */
     public function store(Request $request)
     {
@@ -77,7 +74,7 @@ class BlogController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function show($id, $key = null)
     {

@@ -50,7 +50,6 @@ class ContactController extends Controller
             return view('pages.send-result')->with(['data' => 'Your message has been sent']);
 
         }else {
-
             return view('pages.send-result')->with(['data' => 'Message not sent']);
         }
     }
