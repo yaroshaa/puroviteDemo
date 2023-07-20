@@ -11,6 +11,8 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 class BlogController extends Controller
 {
@@ -62,9 +64,8 @@ class BlogController extends Controller
         {
             return view()->with(['error' => 'Тew post not added']);
         } else {
-            if ($request->isMethod('post') && $request->hasFile('image')) {
-                $file = $request->file('image');
-                $file->move(public_path() . '/img/blog', 'filename.img');
+            if ($request->isMethod('post') && $request->image) {
+                Image::make($request->file('image'))->save(public_path() . '/img/blog/'.$request->file('image')->getClientOriginalName());
             }
         }
 
@@ -118,11 +119,13 @@ class BlogController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $request->validate([
             'name' => ['required'],
             'content' => ['required'],
             'meta_keys' => ['required'],
             'meta_description' => ['required'],
+            'image' => 'mimes:jpeg,bmp,png|max:500000'
         ]);
 
         $updateContent = $this->blogRepository->updatePost($request,$id);
@@ -130,9 +133,8 @@ class BlogController extends Controller
         if (!$updateContent) {
             return view()->with(['error' => 'Тew post not added']);
         } else {
-            if ($request->isMethod('post') && $request->hasFile('image')) {
-                $file = $request->file('image');
-                $file->move(public_path() . '/img/blog', 'filename.img');
+            if ($request->isMethod('post') && $request->image) {
+                Image::make($request->file('image'))->save(public_path() . '/img/blog/'.$request->file('image')->getClientOriginalName());
             }
         }
 

@@ -44,8 +44,8 @@
 
             @if(count($data['data']) > 0 )
                 @foreach($data['data'] as $faq)
-                    <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col mb-3">
-                        @if($faq['answered'] && !Auth::user())
+                    <div class="flex justify-start pt-5 xl:flex-row lg:flex-row md:flex-row ssm:flex-col lt:flex-col mb-3">
+                        @if($faq['answered'] && !Auth::user() && $faq['status'])
                             <div x-data="{ expanded: false }" class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
                                 <div @click="expanded = ! expanded"  class="text-justify xl:pr-10 lg:pr-10 md:pr-0 sm:pr-0 lt:pr-0">
                                     <p class="p-3">{{ $faq['question'] }}</p>
@@ -117,9 +117,8 @@
                         @endif
                     </div>
                 @endforeach
-
             @else
-                <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col border-b-2 border-gray-200">
+                <div class="flex justify-start pt-5 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col border-b-2 border-gray-200">
                     <div class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
                         <h3 class="uppercase xl:text-4xl lg:text-4xl md:text-2xl sm:text-2xl lt:text-2xl font-medium mb-8 xl:text-left lg:text-left md:text-center sm:text-center lt:text-center text-cyan-800">
                             {{ __('No information for display!') }}

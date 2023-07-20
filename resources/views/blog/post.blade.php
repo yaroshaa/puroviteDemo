@@ -18,7 +18,7 @@
         <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3">
                 <div class="flex justify-start pt-14 flex-col border-b-2 border-gray-200">
                     <div class="w-full p-4">
-                        <img src="{{ asset('img/'.$data['image']) }}" alt="">
+                        <img src="{{ asset('img/blog/'.$data['image']) }}" alt="">
                     </div>
                     <div class="w-full p-4">
                         <h3 class="uppercase xl:text-4xl lg:text-4xl md:text-2xl sm:text-2xl lt:text-2xl font-medium mb-8 xl:text-left lg:text-left md:text-center sm:text-center lt:text-center text-cyan-800">

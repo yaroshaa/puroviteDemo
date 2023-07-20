@@ -14,7 +14,7 @@
 
             <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col">
                 <div class="w-full p-4">
-                    <form method="POST" action="{{ route('poststore') }}">
+                    <form method="POST" action="{{ route('poststore') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div>

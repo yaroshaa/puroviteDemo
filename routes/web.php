@@ -69,8 +69,9 @@ Route::prefix('settings')->group(function () {
     Route::post('/store', [SettingsController::class, 'store'])->name('settingsstore');
     Route::get('/{id}/edit', [SettingsController::class, 'edit'])->name('settingsedit');
     Route::post('/update', [SettingsController::class, 'update'])->name('settingsupdate');
-    Route::post('/{id}/delete', [SettingsController::class, 'delete'])->name('userdelete');
-    Route::get('/user', [UserController::class, 'store'])->name('userstore');
+    Route::get('/user/create', [UserController::class, 'create'])->name('usercreate');
+    Route::post('/user', [UserController::class, 'store'])->name('userstore');
+    Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('useredit');
     Route::post('/user/{id}/update', [UserController::class, 'update'])->name('userupdate');
     Route::post('/user/{id}/delete', [UserController::class, 'delete'])->name('userdelete');
 });

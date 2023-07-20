@@ -14,7 +14,7 @@
         <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3">
             <div class="flex justify-start pt-14 xl:flex-row lg:flex-row md:flex-row sm:flex-col lt:flex-col">
                 <div class="w-full p-4">
-                    <form method="POST" action="{{ route('postupdate', ['id' => $data['id']]) }}">
+                    <form method="POST" action="{{ route('postupdate', ['id' => $data['id']]) }}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" value="{{$data['blog_id']}}" name="blog_id">
                         <div>

@@ -34,6 +34,8 @@ class SettingsController extends Controller
                 'users' => $users,
                 'emails ' => $emails ,
             ]);
+        }else{
+            return redirect()->route('/');
         }
 
     }

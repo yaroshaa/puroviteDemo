@@ -1,7 +1,6 @@
 <?php
 namespace App\Repositories;
 
-
 use App\Models\Blog;
 use App\Models\BlogContent;
 use Illuminate\Http\Request;
@@ -16,7 +15,7 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
     {
         return Blog::with(['content' => function ($query) use ($languageId) {
             $query->where('language_id' , $languageId);
-        }])->where('status' , true)->orderBy('created_at', 'DESC')->paginate(25);
+        }])->orderBy('created_at', 'DESC')->paginate(25);
     }
 
 
@@ -34,11 +33,10 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
             ->toArray();
     }
 
-
-
     public function storePost(Request $request): bool
     {
         $post = Blog::create();
+        $image = $request->hasFile('image') ? $request->file('image')->getClientOriginalName() : null;
         $blogContent = BlogContent::create([
             'blog_id' => $post->id,
             'language_id' => $request->input('language_id'),
@@ -46,13 +44,12 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
             'content' => $request->input('content'),
             'meta_keys' => $request->input('meta_keys'),
             'meta_description' => $request->input('meta_description'),
-            'image' => $request->input('image'),
+            'image' => $image,
             'status' => true
         ]);
 
         return isset($blogContent->id);
     }
-
 
     public function updatePost(Request $request, $id): string
     {
@@ -66,9 +63,15 @@ class BlogRepository implements Interfaces\BlogRepositoryInterface
             'name' => $request->input('name'),
             'content' => $request->input('content'),
             'meta_keys' => $request->input('meta_keys'),
-            'meta_description' => $request->input('meta_description'),
-            'image' => $request->input('image')
+            'meta_description' => $request->input('meta_description')
         ]);
+
+        if($request->hasFile('image')) {
+            BlogContent::find($id)->update([
+                'image' => $request->file('image')->getClientOriginalName()
+            ]);
+        }
+
 
         return 'ok';
     }
