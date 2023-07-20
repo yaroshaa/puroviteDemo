@@ -9,6 +9,8 @@ use App\Http\Controllers\Blog\PostShowController;
 use App\Http\Controllers\Blog\PostUpdateActionController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PageController;
@@ -48,11 +50,10 @@ Route::get('/facility', [PageController::class, 'index'])->name('facility');
 Route::get('/quality', [PageController::class, 'index'])->name('quality');
 Route::get('/certificates', [PageController::class, 'index'])->name('certificates');
 Route::get('/services', [PageController::class, 'index'])->name('services');
+
 // Contacts
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 Route::post('/contacts', [ContactController::class, 'send'])->name('contactsSend');
-//Route::get('/faq', [FaqController::class, 'index'])->name('faq');
-//Route::post('/faq', [FaqController::class, 'index'])->name('faqSend');
 Route::post('/search', [SearchController::class, 'index'])->name('search');
 
 Route::prefix('faq')->group(function () {
@@ -62,6 +63,22 @@ Route::prefix('faq')->group(function () {
     Route::post('/{id}/update', [FaqController::class, 'update'])->name('faqupdate');
     Route::post('/{id}/delete', [FaqController::class, 'delete'])->name('faqdelete');
 });
+
+Route::prefix('settings')->group(function () {
+    Route::get('/', [SettingsController::class, 'index'])->name('settings');
+    Route::post('/store', [SettingsController::class, 'store'])->name('settingsstore');
+    Route::get('/{id}/edit', [SettingsController::class, 'edit'])->name('settingsedit');
+    Route::post('/update', [SettingsController::class, 'update'])->name('settingsupdate');
+    Route::post('/{id}/delete', [SettingsController::class, 'delete'])->name('userdelete');
+    Route::get('/user', [UserController::class, 'store'])->name('userstore');
+    Route::post('/user/{id}/update', [UserController::class, 'update'])->name('userupdate');
+    Route::post('/user/{id}/delete', [UserController::class, 'delete'])->name('userdelete');
+});
+
+
+
+
+
 Route::prefix('blog')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog');
     Route::get('/add', [BlogController::class, 'create'])->name('postcreate');

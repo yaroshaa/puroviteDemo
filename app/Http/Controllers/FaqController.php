@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\NewFaqJob;
+use App\Jobs\SendMailJob;
+use App\Models\Settings;
 use App\Models\User;
 use App\Repositories\FaqRepository;
 use Auth;
@@ -11,6 +13,7 @@ use Illuminate\Http\Request;
 class FaqController extends Controller
 {
     private FaqRepository $faqRepository;
+    private const ID = 1;
 
     public function __construct(FaqRepository $faqRepository)
     {
@@ -22,15 +25,13 @@ class FaqController extends Controller
      */
     public function index()
     {
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            $data = $this->faqRepository->getQuestionsForAdmin();
+        } else {
+            $data = $this->faqRepository->getQuestions();
+        }
 
-           if(Auth::user() && Auth::user()->hasRole('admin')) {
-               $data = $this->faqRepository->getQuestionsForAdmin();
-           } else {
-               $data = $this->faqRepository->getQuestions();
-           }
-
-
-           return view('faq/faqList')->with([
+        return view('faq/faqList')->with([
             'title' => 'FAQ',
             'meta_keys' => 'faq',
             'meta_description' => 'faq',
@@ -65,16 +66,20 @@ class FaqController extends Controller
 
         ];
 
-        NewFaqJob::dispatch($data);
-
-        if (!$newQuestion)
+        if ($newQuestion)
         {
-            return view()->with(['error' => 'New Question not added']);
-        } else {
+            $adminEmails = explode(',', Settings::find($this::ID)->admin_email);
+
+            if(count($adminEmails) > 0){
+                foreach($adminEmails as $item){
+                    NewFaqJob::dispatch($data, trim($item));
+                }
+            }
             return redirect()->route('faq');
+
+        } else {
+            return view()->with(['error' => 'New Question not added']);
         }
-
-
     }
 
     /**

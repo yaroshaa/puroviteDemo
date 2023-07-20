@@ -24,11 +24,11 @@ class NewFaqJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct($data)
+    public function __construct($data, $adminEmail)
     {
         $this->name = $data['name'];
         $this->userEmail = $data['email'];
-        $this->adminEmail = config('mail.to');
+        $this->adminEmail = $adminEmail;
         $this->question = $data['question'];
     }
 

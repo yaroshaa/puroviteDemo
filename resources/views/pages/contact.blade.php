@@ -30,11 +30,11 @@
                             <x-text-area id="message" class="block mt-1 w-full" type="text" name="message" :value="old('message')" required></x-text-area>
                             <x-input-error :messages="$errors->get('message')" class="mt-2" />
                         </div>
-{{--                        @php--}}
-{{--                            $attributes = [--}}
-{{--                            ];--}}
-{{--                        @endphp--}}
-{{--                        {!! app('captcha')->display($attributes) !!}--}}
+                        @php
+                            $attributes = [
+                            ];
+                        @endphp
+                        {!! app('captcha')->display($attributes) !!}
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ml-4">
                                 {{ __('Send') }}

@@ -6,7 +6,7 @@
                     {{ __(' Frequently Asked Questions') }}
                 </h2>
                 <div class="p-2 xl:text-white lg:text-white md:text-gray-600 sm:text-gray-600 lt:text-gray-600 lg:my-16 sm:my-2 xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full sm:text-xs md:text-2xl">
-                        @if(Auth::user())
+                    @if(Auth::user())
                     <div x-data="{ expanded: false }">
                         <button @click="expanded = ! expanded">
                             {{ __('Add Question') }}
@@ -76,7 +76,7 @@
                                             <div class="flex items-center justify-between mt-4">
                                                 <div class="flex items-center justify-start mt-4 ">
                                                     <label for="status"> {{__('Status')}} </label>
-                                                    <input type="checkbox" name="status" class="ml-4" value="1"/>
+                                                    <input type="checkbox" @if($faq['status'] == 1) checked @endif name="status" class="ml-4" value="1"/>
                                                 </div>
 
                                                 <x-primary-button class="ml-4">
@@ -90,10 +90,10 @@
                             <div class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
                                 <div class="actions flex flex-row ">
                                     <div class="inline-block p-2">
-                                        <x-link-modal x-data="" x-on:click="$dispatch('open-modal', 'confirm-post-deletion')">
+                                        <x-link-modal x-data="" x-on:click="$dispatch('open-modal', 'confirm-faq-deletion')">
                                             delete
                                         </x-link-modal>
-                                        <x-post-modal name="confirm-post-deletion">
+                                        <x-post-modal name="confirm-faq-deletion">
                                             <form method="POST" action="{{ route('faqdelete', ['id' => $faq['id']]) }}" class="p-2" >
                                                 @csrf
                                                 <h2 class="text-lg font-medium text-gray-900">
@@ -101,7 +101,7 @@
                                                 </h2>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <x-secondary-button x-on:click.prevent="$dispatch('close', 'confirm-post-deletion')">
+                                                    <x-secondary-button x-on:click.prevent="$dispatch('close', 'confirm-faq-deletion')">
                                                         {{ __('Cancel') }}
                                                     </x-secondary-button>
 

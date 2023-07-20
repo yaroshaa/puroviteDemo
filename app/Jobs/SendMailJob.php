@@ -3,6 +3,7 @@
 namespace App\Jobs;
 
 use App\Mail\NewMessageFromContactPage;
+use App\Models\Settings;
 use GuzzleHttp\Psr7\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -18,19 +19,19 @@ class SendMailJob implements ShouldQueue
 
     private string $name;
     private string $userEmail;
-    private string $adminEmail;
     private string $userMessage;
-
+    private string $adminEmail;
 
     /**
      * Create a new job instance.
      */
-    public function __construct($data)
+    public function __construct($data, $adminEmail)
     {
-        $this->name = $data->name;
-        $this->userEmail = $data->email;
-        $this->adminEmail = config('mail.to');
-        $this->userMessage = $data->message;
+        $this->name = $data['name'];
+        $this->userEmail = $data['email'];
+        $this->userMessage = $data['message'];
+        $this->adminEmail = $adminEmail;
+
     }
 
     /**

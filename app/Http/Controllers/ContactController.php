@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mail;
+use App\Models\Email;
+use App\Models\Settings;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,6 +14,8 @@ use App\Jobs\SendMailJob;
 
 class ContactController extends Controller
 {
+
+    private const ID = 1;
     /**
      * Display a listing of the resource.
      *
@@ -36,17 +39,30 @@ class ContactController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required',  'email', 'max:255'],
             'message' => ['required', 'string'],
-//            'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
-        $mail = Mail::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'message' => strip_tags($request->message),
+        $mail = Email::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'message' => strip_tags($request->input('message')),
         ]);
+
+        $data = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'message' => strip_tags($request->input('message'))
+        ];
 
         if ($mail->id != null) {
-            SendMailJob::dispatch($request);
+            $adminEmails = explode(',', Settings::find($this::ID)->admin_email);
+
+            if(count($adminEmails) > 0){
+                foreach($adminEmails as $item){
+                    SendMailJob::dispatch($data, trim($item));
+                }
+            }
+
             return view('pages.send-result')->with(['data' => 'Your message has been sent']);
 
         }else {
