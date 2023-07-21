@@ -1,9 +1,5 @@
 <x-app-layout>
-    @if(Auth::user() && Auth::user()->hasRole('admin') && count($data['data']) > 0)
-        <x-white-button href="{{ route('postcreate', ['key' => null]) }}">
-            {{ __('Add post') }}
-        </x-white-button>
-    @endif
+
     <div class="lg:py-8 md:py-8 sm:py-5 lt:py-5 lg:mt-16 xl:mt-16 md:mt-8 sm:mt-0 lt:mt-0 p-2">
         <div class="max-w-7xl mx-auto xl:mb-40 lg:mb-40 md:mb-8 sm:mb-3 lt:mb-3">
             <div class="w-4/5 text-white">
@@ -13,6 +9,11 @@
                 <div class="p-2 xl:text-white lg:text-white md:text-gray-600 sm:text-gray-600 lt:text-gray-600 lg:my-16 sm:my-2 xl:w-3/4 lg:w-3/4 md:w-full sm:w-full lt:w-full sm:text-xs md:text-2xl">
                     Blog, information...
                 </div>
+                @if(Auth::user() && Auth::user()->hasRole('admin') && count($data['data']) > 0)
+                    <a class="pl-3 inline-block hover:text-gray-700" href="{{ route('postcreate', ['key' => null]) }}">
+                        {{ __('Add post') }}
+                    </a>
+                @endif
             </div>
         </div>
         <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3">
