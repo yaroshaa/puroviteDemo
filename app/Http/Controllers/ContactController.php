@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Email;
 use App\Models\Settings;
+use Auth;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -67,6 +69,22 @@ class ContactController extends Controller
 
         }else {
             return view('pages.send-result')->with(['data' => 'Message not sent']);
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param int $id
+     * @return RedirectResponse
+     */
+    public function delete(int $id)
+    {
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            Email::find($id)->delete();
+            return redirect()->back();
+        }else{
+            return redirect()->route('/');
         }
     }
 }

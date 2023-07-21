@@ -23,15 +23,13 @@ class SettingsController extends Controller
     public function index()
     {
         if(Auth::user() && Auth::user()->hasRole('admin')) {
-
                 $settings = Settings::find($this::ID);
                 $users =  User::all();
                 $emails =  Email::all();
-
             return view('settings/settings')->with([
                 'settings' => $settings,
                 'users' => $users,
-                'emails ' => $emails ,
+                'emails' => $emails ,
             ]);
         }else{
             return redirect()->route('/');

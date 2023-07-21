@@ -74,6 +74,7 @@ Route::prefix('settings')->group(function () {
     Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('useredit');
     Route::post('/user/{id}/update', [UserController::class, 'update'])->name('userupdate');
     Route::post('/user/{id}/delete', [UserController::class, 'delete'])->name('userdelete');
+    Route::post('/contact/{id}/delete', [ContactController::class, 'delete'])->name('contactdelete');
 });
 
 
