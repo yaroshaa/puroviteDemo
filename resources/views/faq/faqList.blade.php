@@ -43,7 +43,9 @@
         <div class="max-w-7xl mx-auto pt-2 xl:mb-10 lg:mb-10 md:mb-8 sm:mb-3 lt:mb-3 mt-5">
 
             @if(count($data['data']) > 0 )
+                @php($counter = 1)
                 @foreach($data['data'] as $faq)
+                    @php($counter++)
                     <div class="flex justify-start pt-5 xl:flex-row lg:flex-row md:flex-row ssm:flex-col lt:flex-col mb-3">
                         @if($faq['answered'] && !Auth::user() && $faq['status'])
                             <div x-data="{ expanded: false }" class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
@@ -90,10 +92,10 @@
                             <div class="xl:w-2/3 lg:w-2/3 md:w-2/3 sm:w-full lt:w-full p-4">
                                 <div class="actions flex flex-row ">
                                     <div class="inline-block p-2">
-                                        <x-link-modal x-data="" x-on:click="$dispatch('open-modal', 'confirm-faq-deletion')">
+                                        <x-link-modal x-data="" x-on:click="$dispatch('open-modal', 'confirm-faq-deletion-{{$counter}}')">
                                             delete
                                         </x-link-modal>
-                                        <x-post-modal name="confirm-faq-deletion">
+                                        <x-post-modal name="confirm-faq-deletion-{{$counter}}">
                                             <form method="POST" action="{{ route('faqdelete', ['id' => $faq['id']]) }}" class="p-2" >
                                                 @csrf
                                                 <h2 class="text-lg font-medium text-gray-900">
@@ -101,11 +103,11 @@
                                                 </h2>
 
                                                 <div class="mt-6 flex justify-end">
-                                                    <x-secondary-button x-on:click.prevent="$dispatch('close', 'confirm-faq-deletion')">
+                                                    <x-secondary-button x-on:click.prevent="$dispatch('close', 'confirm-faq-deletion-{{$counter}}')">
                                                         {{ __('Cancel') }}
                                                     </x-secondary-button>
 
-                                                    <x-danger-button class="ml-3" x-on:click="console.log('11111111111')">
+                                                    <x-danger-button class="ml-3" x-on:click="">
                                                         {{ __('Delete') }}
                                                     </x-danger-button>
                                                 </div>

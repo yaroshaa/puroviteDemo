@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -22,7 +23,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('settings.createUser');
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            return view('settings.createUser');
+        }else{
+            return redirect()->route('/');
+        }
+
     }
 
     /**
@@ -33,19 +39,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', Rules\Password::defaults()],
-        ]);
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+                'password' => ['required', Rules\Password::defaults()],
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
 
-        return redirect('settings');
+            return redirect('settings');
+        }else{
+            return redirect()->route('/');
+        }
     }
 
     /**
@@ -54,9 +64,12 @@ class UserController extends Controller
      */
     public function edit(int $id)
     {
-        $user = User::find($id);
-        return view('settings.editUser')->with(['user' => $user]);
-
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            $user = User::find($id);
+            return view('settings.editUser')->with(['user' => $user]);
+        }else{
+            return redirect()->route('/');
+        }
     }
 
     /**
@@ -68,23 +81,26 @@ class UserController extends Controller
      */
     public function update(Request $request, int $id)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'password' => [Rules\Password::defaults()],
-        ]);
-
-        User::find($id)->update([
-            'name' => $request->input('name'),
-            'role' => $request->input('role'),
-        ]);
-
-        if($request->input('password') != null){
-            User::find($id)->update([
-                'password' => Hash::make($request->input('password'))
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'password' => ['nullable','string', Rules\Password::defaults()],
             ]);
-        }
 
-        return redirect()->back();
+            User::find($id)->update([
+                'name' => $request->input('name'),
+                'role' => $request->input('role'),
+            ]);
+
+            if($request->input('password') != null){
+                User::find($id)->update([
+                    'password' => Hash::make($request->input('password'))
+                ]);
+            }
+            return redirect()->back();
+        }else{
+            return redirect()->route('/');
+        }
     }
 
     /**
@@ -95,7 +111,11 @@ class UserController extends Controller
      */
     public function delete(int $id)
     {
-        User::find($id)->delete();
-        return redirect()->back();
+        if(Auth::user() && Auth::user()->hasRole('admin')) {
+            User::find($id)->delete();
+            return redirect()->back();
+        }else{
+            return redirect()->route('/');
+        }
     }
 }

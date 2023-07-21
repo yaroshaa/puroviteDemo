@@ -9,7 +9,6 @@ use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\App;
 
 class SettingsController extends Controller
 {
